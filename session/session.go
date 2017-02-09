@@ -1,5 +1,7 @@
 // Package session provides sessions for the Netflow version 9 and IPFIX
 // decoders that need to track templates bound to a session.
+// implements a session to store template,because netflow v9 dosenot send template and dataflow set together
+// when find a dataflowset ,it cant find it template by id from session
 package session
 
 import "sync"

@@ -16,11 +16,7 @@ import (
 	"net"
 
 	"github.com/tehmaze/netflow"
-	"github.com/tehmaze/netflow/ipfix"
-	"github.com/tehmaze/netflow/netflow1"
 	"github.com/tehmaze/netflow/netflow5"
-	"github.com/tehmaze/netflow/netflow6"
-	"github.com/tehmaze/netflow/netflow7"
 	"github.com/tehmaze/netflow/netflow9"
 	"github.com/tehmaze/netflow/session"
 )
@@ -73,23 +69,12 @@ func main() {
 		}
 
 		switch p := m.(type) {
-		case *netflow1.Packet:
-			netflow1.Dump(p)
 
 		case *netflow5.Packet:
 			netflow5.Dump(p)
 
-		case *netflow6.Packet:
-			netflow6.Dump(p)
-
-		case *netflow7.Packet:
-			netflow7.Dump(p)
-
 		case *netflow9.Packet:
 			netflow9.Dump(p)
-
-		case *ipfix.Message:
-			ipfix.Dump(p)
 		}
 	}
 }
